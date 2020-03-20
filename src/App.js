@@ -67,7 +67,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>Market Watch by <a href="https://twitter.com/prdpx7" target="_blank" rel="noopener noreferrer">@prdpx7</a></p>
+        <p><span className="Stat-title">Market Watch</span> by  <a className="App-link" href="https://twitter.com/prdpx7" target="_blank" rel="noopener noreferrer">@prdpx7</a></p>
       </header>
       <header className="App-cards">
         <IndexCard exchangeName="NIFTY" />
