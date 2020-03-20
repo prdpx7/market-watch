@@ -15,10 +15,10 @@ const paths = {
 
 const ShowStat = (props) => (
   <div className="Stat-card">
-    <p>{props.exchangeName}</p>
-    <p>Current Price: {props.data.pricecurrent}</p>
-    <p>Change : {props.data.CHANGE > 0 ? `+${props.data.CHANGE}` : `${props.data.CHANGE}`} </p>
-    <p>% Change: {props.data.CHANGE > 0 ? `+${props.data.PERCCHANGE}` : `${props.data.PERCCHANGE}`}</p>
+    <p className="Stat-title">{props.exchangeName}</p>
+    <p>{props.data.CHANGE > 0 ? '▲' : '▼'}{props.data.pricecurrent}</p>
+    <p>{props.data.CHANGE > 0 ? `+${props.data.CHANGE}` : `${props.data.CHANGE}`} </p>
+    <p>{props.data.CHANGE > 0 ? `+${props.data.PERCCHANGE}` : `${props.data.PERCCHANGE}`}%</p>
   </div>
 )
 class IndexCard extends React.Component {
