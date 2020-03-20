@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/market-watch/static/css/main.18fc1294.chunk.css",
+    "main.js": "/market-watch/static/js/main.e95085de.chunk.js",
+    "main.js.map": "/market-watch/static/js/main.e95085de.chunk.js.map",
+    "runtime-main.js": "/market-watch/static/js/runtime-main.545427f3.js",
+    "runtime-main.js.map": "/market-watch/static/js/runtime-main.545427f3.js.map",
+    "static/js/2.b075263e.chunk.js": "/market-watch/static/js/2.b075263e.chunk.js",
+    "static/js/2.b075263e.chunk.js.map": "/market-watch/static/js/2.b075263e.chunk.js.map",
+    "index.html": "/market-watch/index.html",
+    "precache-manifest.d50f3b2227689e00e779e24580b8eacc.js": "/market-watch/precache-manifest.d50f3b2227689e00e779e24580b8eacc.js",
+    "service-worker.js": "/market-watch/service-worker.js",
+    "static/css/main.18fc1294.chunk.css.map": "/market-watch/static/css/main.18fc1294.chunk.css.map",
+    "static/js/2.b075263e.chunk.js.LICENSE.txt": "/market-watch/static/js/2.b075263e.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/market-watch/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.545427f3.js",
+    "static/js/2.b075263e.chunk.js",
+    "static/css/main.18fc1294.chunk.css",
+    "static/js/main.e95085de.chunk.js"
+  ]
+}
