@@ -8,9 +8,10 @@ import { ThemeProvider } from 'styled-components';
 import "./App.css";
 import { darkMode, lightMode } from './theme';
 
-import Toggle from 'react-toggle';
-import "react-toggle/style.css"
+// import Toggle from 'react-toggle';
+// import "react-toggle/style.css"
 
+import Toggle from "./Toggle";
 
 const HostUrl = "https://priceapi.moneycontrol.com"
 const paths = {
@@ -21,7 +22,12 @@ const paths = {
 }
 
 const StyledStatCard = styled.div`
-  margin: 3rem;
+  @media (max-width: ${props => props.theme.breakpoints.sm}){
+    margin: 1rem;
+  }
+  @media (min-width: ${props => props.theme.breakpoints.sm}){
+    margin: 2.5rem;
+  }
 `
 const StyledCurrentIndex = styled.span`
   color: ${props => props.theme.primary},
@@ -29,14 +35,26 @@ const StyledCurrentIndex = styled.span`
 `
 const StyledIndexChange = styled.span`
   color: ${props => (props.isIncreasing ? props.theme.green : props.theme.red)};
+  font-weight: ${props => props.theme.indexChangeFontWeight};
+  margin-left: 0.6rem;
 `
 const StyledIndexName = styled.div`
-  color: ${props => props.theme.primary},
-  font-weight: 500;
+  color: ${props => props.theme.primary};
+  font-weight: ${props => props.theme.fontWeight};
   font-size: 1.5rem;
+`
+const StyledIndexFooter = styled.div`
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: ${props => props.theme.indexFooterColor};
 `
 const formatNumber = (number) => {
   return new Intl.NumberFormat('en-In').format(number)
+}
+const epochToDateTime = (epcoh_s) => {
+  let dt = new Date(0)
+  dt.setUTCSeconds(epcoh_s)
+  return dt.toLocaleString()
 }
 const ShowStat = (props) => (
   <StyledStatCard >
@@ -44,6 +62,7 @@ const ShowStat = (props) => (
     <div>
       <StyledCurrentIndex >{formatNumber(props.data.pricecurrent)}</StyledCurrentIndex>
       <StyledIndexChange isIncreasing={props.data.CHANGE > 0}>{props.data.CHANGE > 0 ? '▲' : '▼'}  {formatNumber(props.data.CHANGE)} ({props.data.PERCCHANGE}%)</StyledIndexChange>
+      <StyledIndexFooter>Last Updated on: {epochToDateTime(props.data.lastupd_epoch)}</StyledIndexFooter>
     </div>
   </StyledStatCard >
 )
@@ -73,7 +92,13 @@ class IndexCard extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchMarketStats();
+    this.timer = setInterval(() => {
+      this.fetchMarketStats();
+    }, 5000);
+  }
+
+  componentWillMount() {
+    this.timer = null;
   }
 
   render() {
@@ -139,10 +164,10 @@ class App extends React.Component {
     super(props)
     let themeFromLocalStorage = localStorage.getItem("theme");
     // default theme is light
-    let theme = themeFromLocalStorage == "dark" ? darkMode : lightMode
+    let theme = themeFromLocalStorage === "dark" ? darkMode : lightMode
     this.state = {
       theme: theme,
-      themeName: "light",
+      themeName: themeFromLocalStorage ? themeFromLocalStorage : "light",
       toggleChecked: theme === lightMode ? false : true
     }
     this.changeTheme = this.changeTheme.bind(this);
