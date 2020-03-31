@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import styled from 'styled-components';
 import { ThemeProvider } from 'styled-components';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 import "./App.css";
 import { darkMode, lightMode } from './theme';
@@ -42,6 +43,9 @@ const StyledIndexName = styled.div`
   color: ${props => props.theme.primary};
   font-weight: ${props => props.theme.fontWeight};
   font-size: 1.5rem;
+`
+const StyledSpanSpace = styled.span`
+  padding: 0.1rem;
 `
 const StyledIndexFooter = styled.div`
   font-weight: 400;
@@ -107,7 +111,20 @@ class IndexCard extends React.Component {
       <div>
         {isLoaded ?
           <ShowStat data={data} exchangeName={exchangeName} />
-          : <p>Loading....</p>
+          :
+          <StyledStatCard>
+            <StyledIndexName>
+              <Skeleton width={"10rem"} height={"2rem"} />
+            </StyledIndexName>
+            <div>
+              <Skeleton width={"7rem"} height={"1.5rem"} />
+              <StyledSpanSpace />
+              <Skeleton width={"10rem"} height={"1.5rem"} />
+              <div>
+                <Skeleton width={"14rem"} height={"0.7rem"} />
+              </div>
+            </div>
+          </StyledStatCard>
         }
 
       </div>
