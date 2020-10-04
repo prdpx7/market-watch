@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/market-watch/static/css/main.cc4a1412.chunk.css",
-    "main.js": "/market-watch/static/js/main.81243ade.chunk.js",
-    "main.js.map": "/market-watch/static/js/main.81243ade.chunk.js.map",
+    "main.js": "/market-watch/static/js/main.b674964d.chunk.js",
+    "main.js.map": "/market-watch/static/js/main.b674964d.chunk.js.map",
     "runtime-main.js": "/market-watch/static/js/runtime-main.545427f3.js",
     "runtime-main.js.map": "/market-watch/static/js/runtime-main.545427f3.js.map",
     "static/js/2.d0a74b05.chunk.js": "/market-watch/static/js/2.d0a74b05.chunk.js",
     "static/js/2.d0a74b05.chunk.js.map": "/market-watch/static/js/2.d0a74b05.chunk.js.map",
     "index.html": "/market-watch/index.html",
-    "precache-manifest.8d9b5610d90caa4634f9c3e02de95a40.js": "/market-watch/precache-manifest.8d9b5610d90caa4634f9c3e02de95a40.js",
+    "precache-manifest.4bc226c457d1fa9d42969543f24de068.js": "/market-watch/precache-manifest.4bc226c457d1fa9d42969543f24de068.js",
     "service-worker.js": "/market-watch/service-worker.js",
     "static/css/main.cc4a1412.chunk.css.map": "/market-watch/static/css/main.cc4a1412.chunk.css.map",
     "static/js/2.d0a74b05.chunk.js.LICENSE.txt": "/market-watch/static/js/2.d0a74b05.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.545427f3.js",
     "static/js/2.d0a74b05.chunk.js",
     "static/css/main.cc4a1412.chunk.css",
-    "static/js/main.81243ade.chunk.js"
+    "static/js/main.b674964d.chunk.js"
   ]
 }
