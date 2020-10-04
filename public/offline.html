@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>You are offline</title>
+    <!-- Source: https://codepen.io/meodai/full/wvGbERE -->
+    <style>
+        .kaleidoscope {
+            display: block;
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .slice:nth-child(1) {
+            --eq: 0;
+        }
+
+        .slice:nth-child(2) {
+            --eq: 0.1666666667;
+        }
+
+        .slice:nth-child(3) {
+            --eq: 0.3333333333;
+        }
+
+        .slice:nth-child(4) {
+            --eq: 0.5;
+        }
+
+        .slice:nth-child(5) {
+            --eq: 0.6666666667;
+        }
+
+        .slice:nth-child(6) {
+            --eq: 0.8333333333;
+        }
+
+        .slice:nth-child(7) {
+            --eq: 1;
+        }
+
+        .slice {
+            pointer-events: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100vmax;
+            height: 100vmax;
+            -webkit-transform-origin: 0 0;
+                    transform-origin: 0 0;
+            -webkit-transform: rotate(calc(var(--eq) * 360deg)) translate(-1px, -1px);
+                    transform: rotate(calc(var(--eq) * 360deg)) translate(-1px, -1px);
+        }
+        .slice .img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            -webkit-clip-path: polygon(57.5% 100%, 0 0, 100% 0);
+                    clip-path: polygon(57.5% 100%, 0 0, 100% 0);
+            width: 100%;
+            height: 100%;
+        }
+        .slice .img .left,
+        .slice .img .right {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding-top: 100%;
+            background-image: var(--img, url("brokenphone.jpg"));
+            will-change: background-position;
+        }
+        .slice .img .left {
+            background-position: var(--offsetX, 0) var(--offset, 0);
+            -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+            -webkit-transform: rotate(-60deg) translateX(-1px);
+            transform: rotate(-60deg) translateX(-1px);
+        }
+        .slice .img .right {
+            background-position: left var(--offsetXneg, 0) top var(--offset, 0);
+            -webkit-transform-origin: 100% 0;
+            transform-origin: 100% 0;
+            -webkit-transform: translateX(-100%) rotate(-60deg) scaleX(-1) translateX(100%);
+            transform: translateX(-100%) rotate(-60deg) scaleX(-1) translateX(100%);
+        }
+
+    </style>    
+  </head>
+  <body>
+    <div class="kaleidoscope">
+        <div class="slice">
+          <div class="img">
+            <div class="left"></div>
+            <div class="right"></div>
+          </div>
+        </div>
+        <div class="slice">
+          <div class="img">
+            <div class="left"></div>
+            <div class="right"></div>
+          </div>
+        </div>
+        <div class="slice">
+          <div class="img">
+            <div class="left"></div>
+            <div class="right"></div>
+          </div>
+        </div>
+        <div class="slice">
+          <div class="img">
+            <div class="left"></div>
+            <div class="right"></div>
+          </div>
+        </div>
+        <div class="slice">
+          <div class="img">
+            <div class="left"></div>
+            <div class="right"></div>
+          </div>
+        </div>
+        <div class="slice">
+          <div class="img">
+            <div class="left"></div>
+            <div class="right"></div>
+          </div>
+        </div>
+      </div>
+    <!-- inline the webpage's javascript file -->
+    <script>
+        let i = 0;
+        let j = 0;
+        const root = document.querySelector('body');
+        function loop() {
+        i -= 1;
+        root.style.setProperty('--offset', i + 'px');
+        root.style.setProperty('--offsetX', j + 'px');
+        root.style.setProperty('--offsetXneg', j + 'px');
+        requestAnimationFrame(loop);
+        }
+
+        loop()
+
+        root.addEventListener('pointermove', () => {
+        j -= 5;
+        })
+
+        root.addEventListener('click', () => {
+        root.style.setProperty('--img', `url('brokenphone.jpg')`);
+        
+        })
+    </script>
+  </body>
+</html>
